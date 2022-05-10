@@ -112,13 +112,13 @@ class AbsObjScene(object):
             self._set_thread_build_(os_file.path)
             self._set_obj_types_variant_update_()
 
-    def set_load_by_reference_file_paths(self, file_paths):
+    def set_load_by_reference_file_paths(self, reference_raw):
         entity_objs = self.get_entity_objs()
         if entity_objs:
-            for file_path, namespace in file_paths:
+            for i_obj, i_namespace, i_file_path in reference_raw:
                 index = 0
-                reference_args = namespace, index
-                self._set_reference_build_(self._set_root_convert_(file_path), reference_args)
+                reference_args = i_namespace, index
+                self._set_reference_build_(self._set_root_convert_(i_file_path), reference_args)
 
     def set_load_by_container_file_paths(self, file_paths):
         pass
